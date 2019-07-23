@@ -1,5 +1,5 @@
 // var friends = require('./../../data/friends.js');
-
+$(document).ready(function() {
 const questionList = {
   q1: 'Your mind is always buzzing with unexplored ideas and plans',
   q2: 'Generally speaking, you rely more on your experience than your imagination',
@@ -48,8 +48,68 @@ const surveyMaker = () => {
     newDiv.append(radioHTML(qCount));
     $('.questionField').append(newDiv);
     qCount++;
-    console.log(qCount);
   }
 };
 
 surveyMaker();
+
+$(document).on('click', '.close', function() {
+  console.log($(this));
+  $(this).parent().parent().empty();
+})
+
+$(document).on('click','.submitBtn', async()=> {
+  let checked = [];
+  $('input:radio:checked').each(function(){
+    checked.push($(this).val());
+  })
+  let replies = {
+    name: $('#name').val().trim(),
+    img: $('#photo').val(),
+    scores: checked
+  }
+  let scorePick = Object.values(replies.scores);
+  if (scorePick.includes(undefined)) {
+    $('.alert').append(`<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>HAY!!</strong> Make sure to check all of your fields please
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>`)
+    return;
+  } else {
+  // console.log(replies);
+    $.ajax({
+      type: 'POST',
+      url: '/api/survey',
+      data: replies
+    }).then(function(data) {
+      if (data) {
+        // console.log("success");
+        console.log(data);
+        $('.surveyMain').addClass('d-none');
+        $('.resultsName').text(data.name);
+        $('.resultsImage').attr('src',data.img);
+        $('.results').removeClass('d-none');
+      }
+    })
+  }
+})
+
+$(document).on('click', '.replay', ()=> {
+  window.location.reload();
+})
+}); //end document.ready
+
+
+
+// [$('.question1 :checked').val(),
+//     $('.question2 :checked').val(),
+//     $('.question3 :checked').val(),
+//     $('.question4 :checked').val(),
+//     $('.question5 :checked').val(),
+//     $('.question6 :checked').val(),
+//     $('.question7 :checked').val(),
+//     $('.question8 :checked').val(),
+//     $('.question9 :checked').val(),
+//     $('.question10 :checked').val()]

@@ -1,0 +1,30 @@
+body {
+  height: 100%
+}
+
+html {
+  height: 100%;
+}
+
+.results {
+  height: auto;
+  min-height: 100%;
+  width:100%;
+  background-image: url("../images/resultsImg.png");
+}
+
+.resultsMain {
+  height: auto;
+  min-height: 500px;
+}
+
+.resultsImage {
+  width: 50%;
+  height: auto;
+}
+
+.header {
+  background-image: url("../images/banner.png");
+  max-width: 100%;
+  height: auto;
+}

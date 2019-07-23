@@ -6,23 +6,47 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Survey</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-  <!-- <link rel="stylesheet" href="./assets/css/style.css"/> -->
+  <link rel="stylesheet" href="/assets/css/style.css"/>
 </head>
 <body>
-  
-  <div class="title m-4"><h1>Marvel Actor Friend Finder Survey</h1></div>
-  <div class="form m-4">
-    <h4>Name (required)</h4>
-    <input type ="text" id="name" class="form-control" required>
-    <h4>Link to Photo Image (required)</h4>
-    <input type ="text" id="photo" class="form-control" required>
-  </div>
-  <hr>
+  <div class="surveyMain d-none">
+    <div class="header text-light">
+      <div class="row">
+        <div class="col-sm-12 title pl-4 pt-4 mx-2"><h1>Marvel Actor Friend Finder Survey</h1></div>
+        <div class="col-sm-5 col-md-5">
+          <div class="form px-4 pb-4">
+            <h4>Name</h4>
+            <input type ="text" id="name" class="form-control"> 
+            <h4>Link to Photo Image</h4>
+            <input type ="text" id="photo" class="form-control">
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="questionField"></div>
-  <button class="submit btn btn-primary m-4">Submit</button>
+    <div class="questionField"></div>
+    <button class="submitBtn btn btn-primary m-4">Submit</button>
+    <div class="alert"></div>
+  </div>
+
+  <div class="results p-5">
+    <div class="resultsMain container card m-5 p-5">
+      <h2>Your best matching friend is:</h2>
+      <hr>
+      <div class="row">
+        <img class="resultsImage col-sm-8 float-left" src=""/>
+        <div class="col-sm-4 align-self-center">
+          <h3 class="resultsName"></h3>
+          <button class="btn replay btn-primary">Play Again</button>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  <script src="./../assets/javascript/app.js"></script>
+  <script rel="text/javascript" src="/assets/javascript/app.js"></script>
 </body>
 </html>
