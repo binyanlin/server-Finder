@@ -1,6 +1,7 @@
 ## Marvel Friend Finder
 
-###Live Link: https://friendfinder-bl.herokuapp.com/
+##### Live Link: 
+https://friendfinder-bl.herokuapp.com/
 
 This application was created as a practice of: 
 * http
